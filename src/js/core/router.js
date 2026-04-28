@@ -24,5 +24,14 @@ export async function router() {
     return;
   }
 
+  if (path === "#/register"){
+    app.innerHTML = await loadView("register");
+    
+    const module = await import("../../pages/register/register.js");
+    module.initRegister();
+
+    return;
+  }
+
   app.innerHTML = "<h1>404</h1>";
 }
