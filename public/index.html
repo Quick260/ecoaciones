@@ -2,17 +2,28 @@
 <html>
 <head>
   <title>SPA</title>
+  <link rel="stylesheet" href="../src/css/base/variables.css">
+  <link rel="stylesheet" href="../src/css/main.css">
 </head>
 <body>
-
-  <nav>
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="#/" class="nav-link">Inicio</a>
+      <a href="#/todoList" class="nav-link">Acciones</a>
+      <a href="#/about" class="nav-link">Retos</a> 
+      <a href="#/register" class="nav-link">Perfil</a>
+    </div>
+  </nav>
+  
+  <!--<nav>
     <a href="#/">Home</a>
     <a href="#/about">About</a>
     <a href="#/todoList">Lista de actividades</a>
-  </nav>
+    <a href="#/register">Registro de usuario</a>
+  </nav>-->
 
   <div id="app"></div>
 
-  <script type="module" src="../src/js/core/app.js"></script>
+  <script type="module" src="/src/js/core/app.js"></script>
 </body>
 </html>
