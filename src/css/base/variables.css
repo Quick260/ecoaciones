@@ -1,0 +1,14 @@
+/* Colores base, cambia el que quieras, no recuerdo cual era el que no te gustaba*/
+:root {
+  /* Colores*/
+  --verde-principal: #bfecac;   /* El verde de los botones y acentos */
+  --blanco-fondo: #f9fbf7;      /* El fondo suave de la app */
+  --blanco-tarjeta: #fdfffa;    /* El fondo de los contenedores blancos */
+  --azul-detalles: #e0ebff;     /* El azul de las etiquetas "Puntos" o "Completado" */
+
+  /* Colores extra*/
+  --texto-principal: #2d3436;
+  --texto-secundario: #636e72;
+  --sombra: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --borde-redondeado: 24px;
+}
