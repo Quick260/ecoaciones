@@ -1,0 +1,28 @@
+
+.main-nav {
+  background-color: var(--blanco-tarjeta);
+  margin: 15px;
+  padding: 10px;
+  border-radius: var(--borde-redondeado);
+  box-shadow: var(--sombra);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--texto-secundario);
+  padding: 8px 20px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  background-color: var(--verde-principal);
+  color: var(--texto-principal);
+}
