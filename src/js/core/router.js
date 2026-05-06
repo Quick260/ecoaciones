@@ -24,6 +24,16 @@ export async function router() {
     return;
   }
 
+  if (path === "#/tracking") {
+    app.innerHTML = await loadView("tracking");
+
+    const module = await import("../../pages/tracking/tracking.js");
+    module.initTrackingPage();
+    
+    return;
+  }
+    
+    
   if (path === "#/register"){
     app.innerHTML = await loadView("register");
     
