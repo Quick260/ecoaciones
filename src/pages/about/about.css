@@ -1,0 +1,113 @@
+.challenges-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.challenges-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Cuadrícula responsiva para las medallas */
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* La tarjeta de la insignia */
+.badge-card {
+    background-color: var(--blanco-tarjeta);
+    border-radius: var(--borde-redondeado);
+    padding: 30px 20px;
+    box-shadow: var(--sombra);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.badge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* El emoji/icono gigante */
+.badge-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+/* MAGIA VISUAL: Si el reto está bloqueado, se pone en blanco y negro y semitransparente */
+.badge-card.locked .badge-icon {
+    filter: grayscale(100%) opacity(0.4);
+}
+
+.badge-card h3 {
+    color: var(--texto-principal);
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+}
+
+.badge-card p {
+    color: var(--texto-secundario);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    min-height: 45px; /* Mantiene la misma altura aunque el texto sea corto */
+}
+
+/* Barra de progreso */
+.progress-bar-container {
+    background-color: var(--blanco-fondo);
+    height: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.progress-bar {
+    background-color: var(--verde-principal);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* Textos de la barra */
+.badge-card .progress-text {
+    font-weight: 600;
+    margin-bottom: 15px;
+    min-height: auto;
+    font-size: 0.85em;
+}
+
+/* Etiqueta de recompensa */
+.reward-tag {
+    display: inline-block;
+    background-color: var(--azul-detalles);
+    color: #1b4b7a;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 700;
+}
+
+/* Estilos especiales para cuando ya completaste el reto */
+.badge-card.unlocked {
+    border-color: #ffd700; /* Borde dorado sutil */
+    background: linear-gradient(to bottom, #fffdf5, var(--blanco-tarjeta));
+}
+
+.badge-card.unlocked .progress-bar {
+    background-color: #ffd700; /* Barra dorada */
+}
+
+.badge-card.unlocked .reward-tag {
+    background-color: #fff8d6;
+    color: #b8860b;
+}
+
+.badge-card.unlocked .progress-text {
+    color: #b8860b;
+}
