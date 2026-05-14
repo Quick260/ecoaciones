@@ -1,0 +1,116 @@
+/* Contenedor principal */
+.tracking-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tracking-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* El Tablero Grid */
+.kanban-board {
+    display: grid;
+    /* Esto hace la magia de las columnas responsivas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    align-items: start;
+}
+
+/* Columnas individuales */
+.kanban-column {
+    background-color: var(--blanco-fondo);
+    border-radius: var(--borde-redondeado);
+    padding: 15px;
+    /* Un borde punteado le da un toque de libreta o espacio de trabajo */
+    border: 2px dashed #e1e8e1; 
+}
+
+/* Cabeceras de las columnas */
+.column-header {
+    text-align: center;
+    padding: 12px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: var(--sombra);
+}
+
+.column-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--texto-principal);
+}
+
+/* Colores suaves para diferenciar los tiempos */
+.daily-header { background-color: #fff9c4; } /* Amarillo muy suave */
+.weekly-header { background-color: var(--azul-detalles); } /* Tu azul de variables */
+.monthly-header { background-color: #dcedc8; } /* Verde claro extra */
+
+/* Listas y Tarjetas de tareas */
+.kanban-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-height: 150px; /* Para que la columna no se vea colapsada si está vacía */
+}
+
+.tracking-item {
+    background-color: var(--blanco-tarjeta);
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.tracking-item:hover {
+    transform: translateY(-2px);
+}
+
+/* Checkbox más grande y estilizado */
+.tracking-item input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--verde-principal);
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.tracking-info {
+    flex: 1;
+}
+
+.tracking-info strong {
+    display: block;
+    color: var(--texto-principal);
+    font-size: 1.05em;
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.tracking-points {
+    font-size: 0.85em;
+    color: var(--texto-secundario);
+    background-color: var(--blanco-fondo);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+/* Efecto cuando marcas la tarea como completada */
+.tracking-item.completed {
+    opacity: 0.6;
+    background-color: transparent;
+    box-shadow: none;
+    border: 1px solid #e1e8e1;
+}
+
+.tracking-item.completed strong {
+    text-decoration: line-through;
+    color: var(--texto-secundario);
+}

@@ -1,0 +1,174 @@
+/* Tarjetas de Categorías */
+.category-card, .action-item {
+  background-color: var(--blanco-tarjeta);
+  border-radius: var(--borde-redondeado);
+  padding: 18px 24px;
+  margin-bottom: 30px;
+  box-shadow: var(--sombra);
+
+  transition: all 0.4s ease-in-out;
+  overflow: hidden; /* Evita que el texto se salga mientras se hace pequeño */
+  max-height: 1000px; /* Un valor alto por defecto */
+  opacity: 1;
+}
+
+.category-title {
+  margin-top: 0;
+  color: var(--texto-principal);
+  font-size: 1.4em;
+  border-bottom: 2px solid var(--blanco-fondo);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+/* Lista de acciones dentro de la tarjeta */
+.action-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.action-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.action-item:last-child {
+  border-bottom: none;
+}
+
+.action-info strong {
+  display: block;
+  font-size: 1.1em;
+  color: var(--texto-principal);
+  margin-bottom: 4px;
+}
+
+.action-meta {
+  font-size: 0.85em;
+  color: var(--texto-secundario);
+}
+
+/* Insignia de puntos */
+.badge-points {
+  background-color: var(--azul-detalles);
+  color: #1b4b7a; /* Azul más oscuro para contrastar */
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* Botones de Agregar/Quitar */
+.btn-add {
+  background-color: var(--verde-principal);
+  color: var(--texto-principal);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+  background-color: var(--verde-hover);
+  transform: scale(1.05);
+}
+
+.btn-remove {
+  background-color: transparent;
+  color: var(--texto-secundario);
+  border: 2px solid #e1e8e1;
+  padding: 6px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-remove:hover {
+  border-color: #ff7675; /* Un tono rojo/salmón muy suave */
+  color: #d63031;
+}
+
+.actions-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.actions-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title {
+    font-size: 2.2rem;
+    color: var(--texto-principal);
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+/* Estilos del Buscador */
+.search-box {
+    display: flex;
+    gap: 15px; 
+    align-items: center;
+    background-color: var(--blanco-tarjeta);
+    padding: 10px 15px; 
+    border-radius: 40px;    
+    box-shadow: var(--sombra);
+    max-width: 550px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+#todoInput {
+    flex: 1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+    background-color: var(--blanco-fondo);
+    outline: none;
+    font-family: inherit;
+}
+
+#todoInput:focus {
+    box-shadow: inset 0 0 0 2px var(--verde-principal);
+}
+
+.btn-search {
+    background-color: var(--verde-principal);
+    color: var(--texto-principal);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+    background-color: var(--verde-hover);
+    transform: translateY(-1px);
+}
+
+.esconder-suave {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border: none !important;
+}

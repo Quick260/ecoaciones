@@ -7,6 +7,8 @@ export async function router() {
 
   if (path === "#/") {
     app.innerHTML = await loadView("home");
+    const module = await import("../../pages/home/home.js")
+    module.initHome();
     return;
   }
 

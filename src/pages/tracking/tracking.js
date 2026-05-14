@@ -20,25 +20,34 @@ export function initTrackingPage() {
   }
 
   function renderList(listElement, actions) {
+    // Si no hay acciones en esta categoría, mostramos un mensaje amigable
     if (actions.length === 0) {
-      listElement.innerHTML = "<li>No hay acciones</li>";
+      listElement.innerHTML = `
+        <div style="text-align: center; color: var(--texto-secundario); padding: 30px 0;">
+          <p>Aún no has agregado acciones aquí.</p>
+        </div>`;
       return;
     }
 
-    listElement.innerHTML = actions.map(action => `
-      <li style="margin-bottom:8px;">
-        <label>
+    // Dibujamos cada acción con sus nuevas clases
+    listElement.innerHTML = actions.map(action => {
+      // Verificamos si esta acción específica está completada
+      const isDone = completed[action.text];
+      
+      return `
+        <li class="tracking-item ${isDone ? 'completed' : ''}">
           <input 
             type="checkbox" 
             data-text="${action.text}" 
-            ${completed[action.text] ? "checked" : ""}
+            ${isDone ? "checked" : ""}
           />
-          <strong>${action.text}</strong>
-        </label>
-        <br>
-        Puntos: ${action.points}
-      </li>
-    `).join("");
+          <div class="tracking-info">
+            <strong>${action.text}</strong>
+            <span class="tracking-points">${action.points} pts</span>
+          </div>
+        </li>
+      `;
+    }).join("");
   }
 
   function render() {

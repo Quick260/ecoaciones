@@ -2,7 +2,9 @@
 @import "./layouts/header.css";
 
 body {
-  background-color: var(--blanco-fondo);
+  background: linear-gradient(to top, var(--verde-fondo-gradiente) 0%, var(--blanco-fondo) 50%);
+  background-attachment: fixed; 
+  
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--texto-principal);
   margin: 0;

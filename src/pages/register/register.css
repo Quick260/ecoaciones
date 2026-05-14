@@ -1,0 +1,80 @@
+/* Contenedor principal para centrar la tarjeta */
+.register-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* La tarjeta del formulario */
+.register-card {
+  background-color: var(--blanco-tarjeta);
+  padding: 40px;
+  border-radius: var(--borde-redondeado);
+  box-shadow: var(--sombra);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.register-card h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--texto-principal);
+}
+
+.subtitle {
+  color: var(--texto-secundario);
+  margin-bottom: 30px;
+  font-size: 0.95em;
+}
+
+/* Estilos de los inputs */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--texto-principal);
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e8e1;
+  border-radius: 12px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--verde-principal);
+}
+
+/* El botón principal */
+.btn-primary {
+  background-color: var(--verde-principal);
+  color: var(--texto-principal);
+  border: none;
+  padding: 14px 24px;
+  border-radius: 15px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--verde-hover);
+  transform: translateY(-2px); /* Pequeño efecto de salto al pasar el mouse */
+}

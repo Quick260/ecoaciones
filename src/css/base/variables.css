@@ -1,14 +1,17 @@
 /* Colores base, cambia el que quieras, no recuerdo cual era el que no te gustaba*/
 :root {
-  /* Colores*/
-  --verde-principal: #bfecac;   /* El verde de los botones y acentos */
-  --blanco-fondo: #f9fbf7;      /* El fondo suave de la app */
-  --blanco-tarjeta: #fdfffa;    /* El fondo de los contenedores blancos */
-  --azul-detalles: #e0ebff;     /* El azul de las etiquetas "Puntos" o "Completado" */
+  /* Colores principales con un poco más de vida */
+  --verde-principal: #86d38e;   /* Verde vibrante pero natural */
+  --verde-hover: #6abf73;       /* Verde ligeramente más oscuro para botones */
+  --blanco-fondo: #f4f7f4;      /* Un fondo con un toque gris/verdoso muy sutil */
+  --blanco-tarjeta: #ffffff;    /* Tarjetas blancas puras para generar contraste */
+  --azul-detalles: #a3c9f0;     /* Un azul más notorio para insignias o puntos */
 
-  /* Colores extra*/
+  /* Tipografía y estructura */
   --texto-principal: #2d3436;
   --texto-secundario: #636e72;
-  --sombra: 0 4px 15px rgba(0, 0, 0, 0.05);
-  --borde-redondeado: 24px;
+  --sombra: 0 8px 24px rgba(0, 0, 0, 0.08); /* Sombra un poco más profunda y difuminada */
+  --borde-redondeado: 24px;     /* Mantenemos tus bordes redondeados amigables */
+  --verde-fondo-gradiente: #d4e9d4; /* Verde muy sutil para el inicio del degradado */
+  --blanco-fondo: #f4f7f4;
 }

@@ -63,6 +63,8 @@ export function initTodoList() {
         { text: "♻️ Productos reciclables", freq: "Semanal", points: 6 }
       ]
     }
+
+    
   ];
 
   let selected = JSON.parse(localStorage.getItem("eco_selected")) || [];
@@ -88,18 +90,22 @@ export function initTodoList() {
 
   function render() {
     list.innerHTML = CATEGORIES.map(category => `
-      <div style="margin-bottom:20px;">
-        <h2>${category.title}</h2>
-        <ul>
+      <div class="category-card">
+        <h2 class="category-title">${category.title}</h2>
+        <ul class="action-list">
           ${category.actions.map(action => {
             const isActive = selected.some(a => a.text === action.text);
 
             return `
-              <li style="margin-bottom:8px;">
-                <strong>${action.text}</strong><br>
-                Frecuencia: ${action.freq} | Puntos: ${action.points}
-                <br>
-                <button data-text="${action.text}">
+              <li class="action-item">
+                <div class="action-info">
+                  <strong>${action.text}</strong>
+                  <span class="action-meta">
+                    Frecuencia: ${action.freq} 
+                    <span class="badge-points">${action.points} pts</span>
+                  </span>
+                </div>
+                <button class="${isActive ? 'btn-remove' : 'btn-add'}" data-text="${action.text}">
                   ${isActive ? "Quitar" : "Agregar"}
                 </button>
               </li>
@@ -109,18 +115,56 @@ export function initTodoList() {
       </div>
     `).join("");
 
-    document.querySelectorAll("button").forEach(btn => {
+    list.querySelectorAll("button").forEach(btn => {
       btn.addEventListener("click", () => {
         const action = CATEGORIES
           .flatMap(c => c.actions)
           .find(a => a.text === btn.dataset.text);
 
-        toggleAction(action);
+       
+        if (action) {
+          toggleAction(action);
+        }
       });
     });
   }
 
   render();
+  
+  // Filtro de búsqueda sencillo
+  const input = document.getElementById("todoInput");
+  
+  if (input) {
+    input.addEventListener("input", (e) => {
+      const term = e.target.value.toLowerCase();
+      const categories = document.querySelectorAll(".category-card");
+      
+      categories.forEach(card => {
+        const items = card.querySelectorAll(".action-item");
+        let hasVisibleItems = false;
+        
+        items.forEach(item => {
+          const text = item.querySelector("strong").textContent.toLowerCase();
+          
+          if (text.includes(term)) {
+            // Si coincide, le quitamos la clase para que aparezca suavemente
+            item.classList.remove("esconder-suave");
+            hasVisibleItems = true;
+          } else {
+            // Si no coincide, le ponemos la clase para que se encoja y desvanezca
+            item.classList.add("esconder-suave");
+          }
+        });
+        
+        // Hacemos lo mismo con la tarjeta completa
+        if (hasVisibleItems) {
+          card.classList.remove("esconder-suave");
+        } else {
+          card.classList.add("esconder-suave");
+        }
+      });
+    });
+  }
 }
 
 export function getSelected() {
