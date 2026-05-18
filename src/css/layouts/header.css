@@ -14,15 +14,24 @@
 }
 
 .nav-link {
+  background: transparent;
+  border: none;
   text-decoration: none;
   color: var(--texto-secundario);
   padding: 8px 20px;
   border-radius: 15px;
   transition: all 0.3s ease;
   font-weight: 500;
+  font-family: inherit;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .nav-link:hover {
   background-color: var(--verde-principal);
   color: var(--texto-principal);
+}
+
+.logout-button {
+  display: none;
 }

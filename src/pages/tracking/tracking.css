@@ -10,6 +10,64 @@
     margin-bottom: 40px;
 }
 
+.tracking-summary {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.tracking-summary > div {
+    background-color: var(--blanco-tarjeta);
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    min-width: 190px;
+    padding: 14px 18px;
+    text-align: center;
+}
+
+.summary-label {
+    color: var(--texto-secundario);
+    display: block;
+    font-size: 0.85em;
+    margin-bottom: 5px;
+}
+
+.tracking-summary strong {
+    color: var(--texto-principal);
+    font-size: 1.25em;
+}
+
+.admin-date-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.admin-date-controls span {
+    color: var(--texto-secundario);
+    font-weight: 600;
+}
+
+.admin-date-controls button {
+    background-color: var(--verde-principal);
+    border: none;
+    border-radius: 12px;
+    color: var(--texto-principal);
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 700;
+    padding: 9px 14px;
+}
+
+.admin-date-controls button:hover {
+    background-color: var(--verde-hover);
+}
+
 /* El Tablero Grid */
 .kanban-board {
     display: grid;
@@ -94,12 +152,20 @@
 }
 
 .tracking-points {
+    display: inline-block;
     font-size: 0.85em;
     color: var(--texto-secundario);
     background-color: var(--blanco-fondo);
     padding: 4px 10px;
     border-radius: 12px;
     font-weight: 500;
+}
+
+.tracking-status {
+    color: var(--texto-secundario);
+    display: block;
+    font-size: 0.78em;
+    margin-top: 8px;
 }
 
 /* Efecto cuando marcas la tarea como completada */
@@ -113,4 +179,8 @@
 .tracking-item.completed strong {
     text-decoration: line-through;
     color: var(--texto-secundario);
+}
+
+.tracking-item.completed input[type="checkbox"] {
+    cursor: not-allowed;
 }

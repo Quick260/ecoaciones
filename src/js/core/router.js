@@ -1,7 +1,51 @@
 import { loadView } from "./viewLoader.js";
+import { getCurrentUser } from "../utils/session.js";
+
+const publicRoutes = ["#/login", "#/register"];
+
+function isLoggedIn() {
+  return Boolean(getCurrentUser());
+}
+
+function updateNavbar() {
+  const loggedIn = isLoggedIn();
+  const privateLinks = document.querySelectorAll(".nav-link:not(.public-link):not(.logout-button)");
+  const publicLinks = document.querySelectorAll(".public-link");
+  const logoutButton = document.getElementById("logout_btn");
+
+  privateLinks.forEach((link) => {
+    link.style.display = loggedIn ? "" : "none";
+  });
+
+  publicLinks.forEach((link) => {
+    link.style.display = loggedIn ? "none" : "";
+  });
+
+  if (logoutButton) {
+    logoutButton.style.display = loggedIn ? "inline-block" : "none";
+    logoutButton.onclick = () => {
+      localStorage.removeItem("curren_user");
+      window.location.hash = "#/login";
+      updateNavbar();
+    };
+  }
+}
 
 export async function router() {
   const path = window.location.hash || "#/";
+  const loggedIn = isLoggedIn();
+
+  updateNavbar();
+
+  if (!loggedIn && !publicRoutes.includes(path)) {
+    window.location.hash = "#/login";
+    return;
+  }
+
+  if (loggedIn && path === "#/login") {
+    window.location.hash = "#/";
+    return;
+  }
 
   const app = document.getElementById("app");
 
@@ -41,6 +85,15 @@ export async function router() {
     
     const module = await import("../../pages/register/register.js");
     module.initRegister();
+
+    return;
+  }
+
+  if (path === "#/login"){
+    app.innerHTML = await loadView("login");
+
+    const module = await import("../../pages/login/login.js");
+    module.initLogin();
 
     return;
   }

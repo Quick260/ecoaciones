@@ -78,9 +78,13 @@ if (path === "#/todoList") {
 ## Cómo ejecutar el proyecto
 
 1. Abrir el proyecto en VS Code
-2. Instalar extensión Live Server
-3. Abrir `public/index.html`
-4. Click en "Open with Live Server"
+2. Ejecutar el servidor local:
+```bash
+npm start
+```
+3. Abrir `http://localhost:3000`
+
+> Nota: el registro necesita este servidor local para guardar las cuentas en `db/users.json`.
   
 ---
 

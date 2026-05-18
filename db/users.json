@@ -1,0 +1,30 @@
+[
+  {
+    "id": "13a83578-b03a-432e-b794-fb497d7a0a8a",
+    "name": "Kiki",
+    "email": "enrique@gmail.com",
+    "role": "admin",
+    "password": "1234",
+    "selectedActions": [
+      {
+        "text": "🚿 Duchas cortas",
+        "freq": "Diario",
+        "points": 5
+      }
+    ],
+    "completedActions": {},
+    "totalPoints": 0,
+    "createdAt": "2026-05-18T03:05:11.572Z"
+  },
+  {
+    "id": "997ec335-9a34-4a64-9ab8-9d924e0edfd7",
+    "name": "Omar",
+    "email": "omar@gmail.com",
+    "password": "1234",
+    "selectedActions": [],
+    "completedActions": {},
+    "totalPoints": 0,
+    "createdAt": "2026-05-18T03:07:54.177Z",
+    "role": "user"
+  }
+]
