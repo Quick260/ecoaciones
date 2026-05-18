@@ -1,4 +1,6 @@
-export function initTodoList() {
+import { getProgress, saveSelectedActions } from "../../js/utils/progressApi.js";
+
+export async function initTodoList() {
   const CATEGORIES = [
     {
       title: "🟢 Ahorro de agua",
@@ -67,15 +69,26 @@ export function initTodoList() {
     
   ];
 
-  let selected = JSON.parse(localStorage.getItem("eco_selected")) || [];
+  let selected = [];
 
   const list = document.getElementById("list");
 
-  function save() {
-    setSelected(selected);
+  async function loadSelected() {
+    try {
+      const progress = await getProgress();
+      selected = progress.selectedActions || [];
+    } catch (error) {
+      alert(error.message);
+    }
   }
 
-  function toggleAction(action) {
+  async function save() {
+    const progress = await saveSelectedActions(selected);
+    selected = progress.selectedActions || [];
+  }
+
+  async function toggleAction(action) {
+    const previousSelected = [...selected];
     const exists = selected.find(a => a.text === action.text);
 
     if (exists) {
@@ -84,7 +97,13 @@ export function initTodoList() {
       selected.push(action);
     }
 
-    save();
+    try {
+      await save();
+    } catch (error) {
+      selected = previousSelected;
+      alert(error.message);
+    }
+
     render();
   }
 
@@ -116,19 +135,20 @@ export function initTodoList() {
     `).join("");
 
     list.querySelectorAll("button").forEach(btn => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", async () => {
         const action = CATEGORIES
           .flatMap(c => c.actions)
           .find(a => a.text === btn.dataset.text);
 
        
         if (action) {
-          toggleAction(action);
+          await toggleAction(action);
         }
       });
     });
   }
 
+  await loadSelected();
   render();
   
   // Filtro de búsqueda sencillo
@@ -165,13 +185,4 @@ export function initTodoList() {
       });
     });
   }
-}
-
-export function getSelected() {
-  return JSON.parse(localStorage.getItem("eco_selected")) || [];
-}
-
-export function setSelected(data) {
-  localStorage.setItem("eco_selected", JSON.stringify(data));
-  window.dispatchEvent(new Event("eco_updated"));
 }
